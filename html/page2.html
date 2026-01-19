@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Abdourahmane Benamine">
+    <link rel="stylesheet" type="text/css" href="../css/feuilledestyle.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vie d'artiste</title>
+</head>
+
+    <body onload=showDate();>
+        <main>    
+            <header>
+                <h1>VIE D'ARTISTE</h1>
+                <nav>   
+                    <a href="indexhtml.html">Accueil</a>
+                    <a href="page1.html">Sommaire</a>
+                    <a href="page2.html">Vie d'artiste</a>
+                    <a href="page3.html">Media</a>
+                    <a href="page4.html">Newsletter</a> 
+                </nav>
+            </header>
+            
+            <p><input class="bouton" type="button" onclick="javascript:openalbum('salle')" value="Salle d'attente"></p>            
+            <p><input class="bouton" type="button" onclick="javascript:openalbum('batterie')" value="Batterie faible"></p>
+            <p><input class="bouton" type="button" onclick="javascript:openalbum('ipseite')" value="Ipséité"></p>
+            <p><input class="bouton" type="button" onclick="javascript:openalbum('lithopedion')" value="Lithopedion"></p>
+            <p><input class="bouton" type="button" onclick="javascript:openalbum('qalf')" value="Qalf"></p>
+        
+            <div id="album" class="cacher">
+                <article id="salle">
+                    <header>
+                        <h2>salle d'attente</h2>
+                        <input type="button"  value="x" onclick="javascript:closealbum()" >
+                    </header>
+                    <div>
+                        <img height="200" width="200" src="../image/salle_d'attente.webp" alt="attente">
+                        <p>2014 : Salle d'attente</p>
+                        <p>Premier projet solo du rappeur bruxellois Damso, comportant 8 titres gratuits, téléchargeable et écoutable</p>
+                    </div>
+                </article>
+                <article id="batterie">
+                    <header>
+                        <h2>batterie faible</h2>
+                        <input type="button" value="x" onclick="javascript:closealbum()" >
+                    </header>
+                    <div>
+                        <img height="200" width="200" src="../image/batterie_faible.webp" alt="faible">
+                        <p>8 juillet 2016 : Batterie faible</p>
+                        <p>Batterie faible est le premier album studio du rappeur belge Damso, sorti le 8 juillet 2016 sous le label Capitol Music France. Ce premier projet de 12 pistes et 2 bonus lui permet de se faire connaitre du public rap et se faire un nom</p>
+                    </div>
+                </article>
+                <article id="ipseite">
+                    <header>
+                        <h2>Ipséité</h2>
+                        <input type="button" value="x" onclick="javascript:closealbum()" >
+                    </header>
+                    <div>
+                        <img height="200" width="200" src="../image/ipseite.webp" alt="ips">
+                        <p>28 avril 2017 : Ipséité</p>
+                        <p>Ipséité est le deuxième album studio du rappeur belge Damso, sorti le 28 avril 2017 sous les labels 92i, Capitol et Universal.
+                            Sorti un an après son premier album Batterie faible qui lui a permis de se faire un nom sur la scène du rap, Ipséité connaît un succès beaucoup plus important en France et en Belgique, permettant à Damso de devenir l'un des rappeurs francophones les plus prometteurs de sa génération.</p>
+                    </div>
+                </article>
+                <article id="lithopedion">
+                    <header>
+                        <h2>lithopedion</h2>
+                        <input type="button" value="x" onclick="javascript:closealbum()" >
+                    </header>
+                    <div>
+                        <img height="200" width="200" src="../image/lithopedion.webp" alt="litp">
+                        <p> 15 juin 2018: lithopedion</p>
+                        <p>Lithopédion est le troisième album studio du rappeur belge Damso, sorti le 15 juin 2018 sous les labels 92i, Capitol, Universal.</p>
+                        <p>Damso explique au journal Libération avoir choisi ce titre pour son album car « Lithopédion, c’est un mort dans un corps en vie, un fœtus qui atteint la maturité mais qui est mort, qui s’est calcifié avec le temps dans le corps d’une mère et qui n’a jamais été extrait. Pour pouvoir l’extraire, il faut mourir. J’aime cette métaphore parce qu’est actuel pour moi : je me sens mort dans un corps en vie. J’ai l’impression de ne plus vivre les choses comme tout le monde. Je m’endurcis au fond de moi comme un lithopédion »</p>
+                    </div>
+                </article>
+                <article id="qalf">
+                    <header>
+                        <h2>Qalf</h2>
+                        <input type="button" value="x" onclick="javascript:closealbum()" >
+                    </header>
+                    <div>
+                        <img height="200" width="200" src="../image/qalf.webp" alt="qalf">
+                        <p>18 septembre 2020 : Qalf  </p>
+                        <p>29 avril 2021 : (Réédition "Infinity")</p>
+                        <p>28 octobre 2023 : (Réédition "LIVE")</p>
+                        <p>QALF est le quatrième album studio du rappeur belge Damso, sorti le 18 septembre 2020, réédité le 29 avril 2021 sous le nom QALF Infinity et le 28 octobre 2023 en QALF LIVE, sous le label Trente-quatre Centimes, label indépendant du rappeur.</p>
+                        <p>L'album, anciennement une mixtape, est pour la première fois annoncée dans l'intro du morceau Une âme pour deux, lorsque le personnage joué par Damso tombe dans le coma : « Je vous garde encore une petite semaine afin d'effectuer quelques analyses en plus. Je vous ai prescrit en attendant la mixtape QALF de Damso et Jackpot du groupe OPG. » Ces paroles se retrouvent dans l'introduction de son album Lithopédion.</p>
+                        <h2>Qalf infinity</h2>
+                        <p> 2023: beyah en attente </p>
+                        <p>Après avoir obtenu un disque de diamant pour QALF fin août 2023, le rappeur dévoile le 18 septembre via son store, une dernière réédition de son projet, proposant alors 5 nouveaux morceaux déjà édités précédemment, mais sous une version live : YOUVOI, P. DOSE, COEUR EN MIETTES, DEUX TOILES DE MER et T. CHIALER.
+                            À quelques heures de la sortie de la seconde réédition, le 27 octobre 2023, l'entièreté de QALF infinity disparaît des plateformes, laissant planer un doute sur l'avenir du projet concernant sa version digitale.  
+                        </p>
+                        <p>Le 6 novembre 2023, l’album est remis sur les plateformes avec une nouvelle couverture où on peut lire « Bēyāh 2025. Merci de bien vouloir patienter »</p>
+                        <img height="200" width="200" src="../image/beyah.jpg " alt="beyah">
+                    </div>
+                </article >
+            </div>
+            <h1>Le chemin </h1>
+            <h2>DAMSO</h2>
+            <fieldset id="tab">
+                <legend>La discographie </legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Salle d'attente</th>
+                            <th>Batterie faible</th>
+                            <th>Ipseite</th>
+                            <th>Litopedion</th>
+                            <th>Qalf</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vente</td>
+                            <td>GRATUIT</td>
+                            <td>300 000</td>
+                            <td>800 000</td>
+                            <td>500 000</td>
+                            <td>500 000</td>
+                        </tr>
+                        <tr>
+                            <td>certifcation</td>
+                            <td>GRATUIT</td>
+                            <td>3x platine</td>
+                            <td>Diament</td>
+                            <td>Diament</td>
+                            <td>Diament</td>
+                        </tr>
+                        <tr>
+                            <td>Label de production</td>
+                            <td colspan="4"> 92i,Capitol Universal</td>
+                            <td>Trente-quatre Centimes,Universal</td>
+                        </tr>
+                        <tr>
+                            <td>Format</td>
+                            <td colspan="5">CD et streaming</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">Peut etre une suite ...</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </fieldset>
+            <h1>Et maitenant ? </h1>
+            <p>Au mois d’août 2023, Damso annonçait une longue pause… à bord de son nouveau camping-car. Après plusieurs années à défendre son dernier album QALF puis sa réédition QALF Infinity, le rappeur émettait le besoin de souffler. Un break qui devrait normalement prendre fin en 2025, d’après un rendez-vous pris avec ses fans par l’artiste lui-même : “On se capte en 2025”. Une date est d’ailleurs déjà fixée par Damso : le 30 mai 2025.</p>
+            <p>“Je vais mettre ‘Mosaïque solitaire’ et après ça, je pars en camping-car”
+            Damso a conclu son dernier concert en disant les choses clairement : “Je vais terminer sur ça. Je vous souhaite le meilleur dans vos projets. Je vais mettre ‘Mosaïque solitaire’ et après ça, je pars en camping-car. Merci beaucoup et on se capte en 2025”.
+            Qu’est-ce que nous réserve le rappeur pour 2025 ? Un album ou un tout autre projet artistique ? Il va falloir attendre pour en savoir plus. En attendant, laissons Dems prendre un repos bien mérité.
+            </p>
+            
+            <nav>
+                <a href="../html/page3.html" id="boutonarr"><img height="30" width="30" src="../image/gauche.jpg" alt="gauche"></a>
+                <a href="../html/page1.html" id="boutonavv"> <img height="30" width="30" src="../image/droite.jpg" alt="droite"> </a>
+            </nav>
+            <footer >
+                <p>DMS</p>
+                <p><span id='horloge' class="heure"></span></p>
+            </footer>
+            <script src="../js/heure.js" > </script>        
+            <script src="../js/feuillejs.js" ></script>
+        </main> 
+    </body>
+
+</html>
+
+
+
+
+
+
+

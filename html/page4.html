@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Abdourahmane Benamine">
+    <link rel="stylesheet" type="text/css" href="../css/feuilledestyle.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWSLETTER</title>
+    <body onload=showDate();>
+        <h1>NEWSLETTER</h1>
+        <nav>
+            <a href="indexhtml.html">Accueil</a>
+            <a href="page1.html">Sommaire</a>
+            <a href="page2.html">Vie d'artiste</a>
+            <a href="page3.html">Media</a>
+            <a href="page4.html">Newsletter</a>
+        </nav>
+        <main>
+            <section>
+                <h2>Remplissez le formulaire pour vous inscrire a la Newsletter et ne rien rater des news</h2>
+                <form id="formulaire" action="mailto:benamine1234@icloud.com" onsubmit="javascript:return checkform();" method="post" enctype="multipart/form-data">
+                    <div>
+                        <fieldset>
+                            <legend>Nom :</legend>
+                            <input type="text" name="nom" id="nom" required pattern="^[A-Za-z]+$">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Prénom :</legend>
+                            <input type="text" name="prenom" id="prenom" required pattern="^[A-Za-z]+$">
+                        </fieldset> 
+                    </div>
+                    
+                    <div>
+                        <fieldset>
+                            <legend> Numéro de téléphone :</legend>
+                            <input type="tel" name="tel" id="tel" required pattern="^[0-9]{10}$">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Une photo(format JPEG) :</legend>
+                            <input type="file" name="photo" id="photo" accept=".jpeg,.jpg" required>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Date de naissance : </legend>
+                            <input type="date" name="datenaissaissance" id="datenaissaissance" required max="2024-12-31">
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Adresse e-mail :</legend>
+                            <input type="email" name="email" id="email" required pattern="^[A-zA-Z0-9_\.-]+@[A-zA-Z0-9_\.-]+\.[A-zA-Z0-9_\.-]+$">
+                        </fieldset>
+                        <fieldset>
+                            <legend> Votre semaine de naissance : </legend>
+                            <input type="week" name="semainenaissance" id="semainenaissance" required max="2024-W52">
+                        </fieldset>
+                        <Fieldset>
+                            <legend> Votre mois de naissance : </legend>
+                            <input type="month" name="moisnaissance" id="moisnaissance" required max="2024-12">
+                        </Fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Votre age :</legend>
+                            <input type="number" name="age" id="age" min="0" required>
+                        </fieldset>
+                        <fieldset>
+                            <legend> Mot de passe :</legend>
+                            <input type="password" name="mpd" id="mpd" required pattern="^.{8,}$">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Notez votre niveau de satisfaction sur une echelle de 1 à 10</legend>
+                            <input type="range" name="range" id="range" value="5" min="1" max="10" oninput="javascript:refreshrange()">
+                            <label for="range"><span id="rangeout"></span></label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Qu'avez vous préferez :</legend>
+                            <select name="mllr" id="mllr" required>
+                                <option value>choisissez</option>
+                                <optgroup label="Avis">
+                                    <option value="a">Site INCROYABLE</option>
+                                    <option value="b">Site bon</option>
+                                    <option value="c">Site boff</option>
+                                </optgroup>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Heure de reception de la Newsletter</legend>
+                            <input type="time" name="heure" id="heure" required min="00:00" max="23:59">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Seletionnez la date et l'heure de désincription automatique (format : aaaa-mm-jj:hh:mm) :</legend>
+                            <input type="datetime-local" name="datedesinscription" id="datedesinscription" value="2024-12-31T12:00" required min="2024-12-31T00:01">
+                        </fieldset>
+                        <fieldset>
+                            <legend>INCROYABLE NON</legend>
+                            <input type="checkbox" name="incr" id="incr" required>
+                            <label for="incr">" En cochant cette case vous etes pour le chauffager gratuit"</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend> DAMSO OU NINHO </legend>
+                            <input type="radio" name="choix" id="dchoix" required>
+                            <label for="dchoix">Damso</label>
+                            <input type="radio" name="choix" id="nchoix" required>
+                            <label for="nchoix">Ninho</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Un site a partager avec nous (commencer par "http://") :</legend>
+                            <input type="url" name="site" id="site" required pattern="https?//.+\[A-Za-z]{2,}">
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Votre couleur favorite :</legend>
+                            <input type="color" name="col" id="couleur">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Un commentaire ?</legend>
+                            <input  name="commentaire" id="commentaire" placeholder="votre commentaire..." >
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <input type="reset" name="reset" value="Remise à zero" class="styled">
+                        </fieldset>
+                        <fieldset>
+                            <input type="submit" name="submit" value="Envoyer" class="styled">
+                        </fieldset>
+                    </div>  
+                </form>
+                <nav>
+                    <a href="../html/indexhtml.html" id="boutonarr"><img height="30" width="30" src="../image/gauche.jpg" alt="gauche"></a>
+                    <a href="../html/page3.html" id="boutonavv"> <img height="30" width="30" src="../image/droite.jpg" alt="droite"> </a>
+                </nav>
+    </section>
+   </main> 
+   <footer >
+    <p>DMS</p>
+    <p><span id='horloge' class="heure"></span></p>
+</footer>
+<script src="../js/heure.js" > </script>
+<script src="../js/feuillejs.js" > </script>
+</body>
+</html>

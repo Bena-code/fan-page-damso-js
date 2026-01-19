@@ -1,0 +1,182 @@
+/******Pour tout les pages******/
+body{
+  background-image: url("../image/fond.jpg");
+  background-clip: padding-box;
+  background-attachment: fixed;
+}
+.heure{
+  
+  color:silver;
+  font-size:40px;
+}
+#boutonarr, #boutonavv {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    position: fixed;
+    bottom: 20px;
+  }
+  #boutonarr {
+    right: 20px;
+  }
+  #boutonavv {
+    left: 20px;
+  }
+table{
+    border: solid 10px black;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+  }
+td{
+  height: 50px;
+    text-align: center;
+    border: solid 3px black;
+  }
+h1{
+  text-align: center;
+  background-color: blueviolet;
+  text-decoration:underline;
+  font-family: 'Times New Roman', Times, serif;
+}
+h2{
+  text-decoration:underline;
+  color: white;
+}
+p,fieldset,pre,ul {
+  color:white;
+  font-size: large;
+}
+#tab,th{
+  color: black;
+}
+.sommaire {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #cc00cc;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  border: double 5px #ffffff;
+  border-radius: 10px;
+  background-color: #1b212c;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 7px;
+  font-family: 'garamond', sans-serif;
+  font-size: large;
+}
+
+footer {
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 18px;
+  letter-spacing: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+footer > p > span {
+  font-size: 11px;
+  letter-spacing: 6px;
+}
+
+legend{
+  color:#E65393 ;
+  font-weight: bold;
+}
+/*accueil************************************************************/
+#ecoute{
+  padding-left: 20%;
+}
+img{
+  position: relative;
+}
+.milieu{
+  padding-left: 25%;
+}
+span{
+  color:rgb(232, 12, 232);
+  font-size: large;
+}
+/*page2************************************************************/
+
+
+div > article > header > input[type=button] {
+  background-color: #000000;
+  position: absolute;
+  width: auto;
+  top: 200px;
+  right: 30px;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.bouton{
+  background-color: rgb(242, 0, 255);
+  border-radius: 80px;
+  text-align: center;
+  font-weight: bold;
+
+}
+.cacher{
+  display: none;
+}
+/*page3************************************************************/
+li{
+list-style: lower-greek;
+}
+#canvas {
+  border: 1px solid #cc00cc;
+}
+#bouton{
+  background-color: aqua;
+  border-radius: 50cm;
+}
+.pos{
+  position:relative;
+}
+
+/*page 4******************************************************************/
+.styled{
+  background-color: purple;
+  border-radius: 10px;
+  text-align: justify;
+
+}
+
+input[type=text],
+input[type=url],
+input[type=date],
+input[type=tel],
+input[type=file],
+input[type=number],
+input[type=color],
+input[type=month],
+input[type=week],
+input[type=time],
+input[type=datetime-local],
+input[type=email],
+input[type=password],
+
+select {
+  width: 50%;
+  height: 22px;
+  border-radius: 8px;
+  text-align: center;
+  
+}
+input[type=reset],input[type=submit]{
+  width: 100%;
+  text-align: center;
+}

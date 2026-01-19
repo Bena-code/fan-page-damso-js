@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Abdourahmane Benamine">
+    <link rel="stylesheet" type="text/css" href="../css/feuilledestyle.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media</title>
+</head>
+<body onload="draw(); showDate();">
+<header>
+    <h1>MEDIA</h1>
+    <nav>
+        <a href="indexhtml.html">Accueil</a>
+        <a href="page1.html">Sommaire</a>
+        <a href="page2.html">Vie d'artiste</a>
+        <a href="page3.html">Media</a>
+        <a href="page4.html">Newsletter</a>
+    </nav>
+</header>
+<main>
+<section id="deezer-app" style="text-align: center; margin: 20px; border: 3px solid #e034b3; padding: 20px; border-radius: 15px; background-color: rgba(0,0,0,0.5);">
+        <h2>🎧 DASHBOARD MUSICAL (API DEEZER)</h2>
+        <p>Recherchez un titre en temps réel :</p>
+        
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="recherche" placeholder="Damso, Ninho..." value="Damso" style="width: 200px; padding: 5px; font-size: 16px;">
+            <button onclick="lancerRecherche()" class="bouton" style="cursor: pointer; padding: 5px 15px; background-color: #e034b3; color: white; border: none; font-size: 16px;">Rechercher</button>
+        </div>
+
+        <div id="resultats" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            </div>
+    </section>
+    <script src="../js/deezer.js"></script>
+<fieldset>
+    <legend>LOGO</legend>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <table>
+    <thead>
+        <tr>
+            <th>changement de couleur</th>
+            <th>enlever une lettre</th>
+            <th>Taille du relief</th>
+            <th>Taille du tracé</th>
+            <th>apparition des reliefs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="color" id="color" value="#c234e1"></td>
+            <td><input type="text" id="valeurManuelle"></td>
+            <td><input type="range" min="1" max="10" step="0.1" value="5" id="slider"></td>
+            <td><select id="choix" name="choix"> 
+        <option value="4" >4</option> 
+        <option value="3">3</option>
+        <option value="2">2</option> 
+        <option value="1" >1</option></select></td>
+        <td><button id="bouton"></button></td>
+        </tr>
+        
+    </tbody>
+    
+</table>
+<p>Pour enlever une lettre il faut écrire en majuscule la lettre à supprimer</p>
+</fieldset>
+<p>la fonction Javascript pour dessiner le logo : </p>
+<pre>
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+        ctx.fillStyle = colorri.value;
+        ctx.strokeStyle = "#5034e0";
+        ctx.lineWidth = choix.value;
+      
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+        ctx.shadowBlur = 5;
+        ctx.shadowOffsetX = slider.value;
+        ctx.shadowOffsetY = slider.value;
+        if(!check)
+          ctx.shadowColor = 'transparent';
+      
+        ctx.beginPath();
+        ctx.moveTo(500-20, 500-20);
+        ctx.lineTo(20, 500-20);
+        ctx.lineTo(500/2, 20);
+        ctx.bezierCurveTo(500-20, 20, 500/2, 500-20, 500-20, 500-20);
+        ctx.lineTo(20, 500-20);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fillStyle = "#e034b3";
+        ctx.beginPath();
+        ctx.moveTo(500-20, 500-20);
+        ctx.lineTo(20, 500-20);
+        ctx.bezierCurveTo(500/2, 20, 20, 500-20, 500-20, 500-20);
+        ctx.lineTo(20, 500-20);
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+      
+        ctx.fillStyle = "#ffffff";
+        ctx.font = Math.floor((500/3)-(500/10))+'px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(texte, (500/2), 500/2);
+        texte = "DMS";
+      }
+</pre>
+<p>Le logo est composé de deux forme superposées et de l'ecriture "DMS" au centre du canvas modifiable avec le menu GUI.</p>
+<p>Les points de contrôle :</p>
+<ul>
+    <li> A defini par : x=500-20 et y=500-20</li>
+    <li> B defini par : x=20 et y=500-20</li>
+    <li> C defini par : x=500/2 et y=20</li>
+    <li> D defini par : x=500-20 et y=20</li>
+    <li> E defini par : x=500/2 et y=500-20</li>
+</ul>
+<p>Le code si dessous permet de clear, de mettre de l'ombre et tracer les lignes avec les valeurs choisis :</p>
+<pre>
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+    ctx.fillStyle = colorri.value;
+    ctx.strokeStyle = "#5034e0";
+    ctx.lineWidth = choix.value;
+  
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = slider.value;
+    ctx.shadowOffsetY = slider.value;
+    if(!check)
+      ctx.shadowColor = 'transparent';
+</pre>
+<p>La 1er ligne clear le canvas ,ensuite viens la couleur de remplissage et le choix du nombre de pixel pour les lignes. Enfin nous avons le flou </p>
+<br>
+<p>Le code suivant permet de dessiner la première forme du logo (en violet)</p>
+<pre>
+    ctx.beginPath();
+  ctx.moveTo(500-20, 500-20);
+  ctx.lineTo(20, 500-20);
+  ctx.lineTo(500/2, 20);
+  ctx.bezierCurveTo(500-20, 20, 500/2, 500-20, 500-20, 500-20);
+  ctx.lineTo(20, 500-20);
+  ctx.fill();
+  ctx.stroke();
+  ctx.closePath();
+</pre>
+<p>Les ligne entre <code>ctx.beginPath();</code> et <code>ctx.closePath();</code> servent a tracer un ligne du partant du point A jusqu'au point B et une autre du point B jusqu'au point C, et trace ensuite une courbe de Bézier pour retourner au point A en prenant  les point D et E respectivement comme 1er et second points de contrôle.
+Finalement on retrace une ligne allant du point A au point B afin d'obtenir des angles propres. Les lignes <code> ctx.fill();</code> et <code>ctx.stroke();</code> vont respectivement remplir et dessiner les contours de la forme que l'on viens de dessiner avec les caratéristiques définies plus tôt. </p>
+
+<p>ensuite le code suivant dessine la seconde forme (en rose): </p>
+<pre>
+    ctx.fillStyle = "#e034b3";
+    ctx.beginPath();
+    ctx.moveTo(500-20, 500-20);
+    ctx.lineTo(20, 500-20);
+    ctx.bezierCurveTo(500/2, 20, 20, 500-20, 500-20, 500-20);
+    ctx.lineTo(20, 500-20);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+</pre>
+<p>Au début, l'instruction <code>ctx.fillStyle = "#e034b3";</code>, va changer la couleur de remplissage pour du rose. </p>
+<p>Les ligne entre <code>ctx.beginPath();</code> et <code>ctx.closePath();</code> commencent par tracer , comme la 1er figure une ligne du point A au point B , puis une autre courbe de Bézier pour retourner au point A en prennant les points C et E pour points de contrôle.
+Enfin on retrace une ligne du point A au point B pour des angles propres.Et les lignes <code> ctx.fill();</code> et <code>ctx.stroke();</code> vont respectivement remplir et dessiner les contours de la forme que l'on viens de dessiner avec les caratéristiques comme la 1er figure.</p>
+
+<p>Pour finir le code suivant ecrit les lettres au centre du canvas (DMS)</p>
+<pre>
+    ctx.fillStyle = "#ffffff";
+  ctx.font = Math.floor((500/3)-(500/10))+'px serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(texte, (500/2), 500/2);
+  texte = "DMS";
+</pre>
+<p>Les 4 première lignes servent à paramétrer respectivement la couleur de remplissage (blanc), la police  et la taille du texte à dessiner ainsi que l'alignement vertical et horizontal du texte. Enfin <code>ctx.fillText(texte, (500/2), 500/2);</code> permet d"écrire le texte à l'emplacement souhaité</p>
+<h1>La video</h1>
+<video  height="400" width="500" src="../image/Damso-Macarena.mp4" controls></video>    
+<p>Video Damso-Macarena</p>
+<p class="pos">la video proviens de Youtube accessible grace a ce <a href="https://www.youtube.com/watch?v=GGhKPm18E48&pp=ygUFZGFtc28%3D">lien.</a> </p>
+<p>Pour tout les textes et recherche les informations proviennent de <a href="https://fr.wikipedia.org/wiki/Damso">wikipedia</a> et de differents interview donner par Damso.</p>
+<nav>
+    <a href="../html/page4.html" id="boutonarr"><img height="30" width="30" src="../image/gauche.jpg" alt="gauche"></a>
+    <a href="../html/page2.html" id="boutonavv"> <img height="30" width="30" src="../image/droite.jpg" alt="droite"> </a>
+</nav>
+</main>
+<footer >
+    <p>DMS</p>
+    <p><span id='horloge' class="heure"></span></p>
+</footer>
+<script src="../js/heure.js" > </script>
+<script src="../js/canvas.js"> </script>
+</html>
