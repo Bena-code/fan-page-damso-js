@@ -1,51 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Abdourahmane Benamine">
-    <link rel="stylesheet" type="text/css" href="../css/feuilledestyle.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/feuillejs.js"></script>
-    <title>sommaire</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Abdourahmane Benamine">
+  <meta name="description" content="Sommaire du site de fan Damso : accès rapide à toutes les pages.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Damso | Sommaire</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Ctext x='32' y='41' font-family='Arial Black,Arial,sans-serif' font-size='24' font-weight='900' text-anchor='middle' fill='%23d4af37'%3EDMS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../css/feuilledestyle.css">
+  <script src="../js/layout.js" defer></script>
 </head>
-<body onload=showDate();>
-    <main>
-    <header>
-        <h1>SOMMAIRE</h1>
-        <nav>
-            <a href="indexhtml.html">Accueil</a>
-            <a href="page1.html">Sommaire</a>
-            <a href="page2.html">Vie d'artiste</a>
-            <a href="page3.html">Media</a>
-            <a href="page4.html">Newsletter</a>
-        </nav>  
-    </header>  
+<body data-page="page1.html">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header" data-site-header></header>
 
-    <h2>ACCUEIL<a href="accueil.html"><img src="../image/accueil.webp" alt="acc" height="100" width="100"></a></h2>
-    <p class="sommaire">Decouverte de l'artiste,biographie..</p>
+  <main id="main" class="container">
+    <header class="page-head">
+      <p class="eyebrow">Plan du site</p>
+      <h1>Sommaire</h1>
+      <p class="lead">Choisissez une page pour continuer la visite.</p>
+    </header>
 
-    <h2><a href="page2.html">VIE D'ARTISTE</a></h2>
-    <p class="sommaire">parcours de l'artiste ,discographie..</p>
+    <ul class="nav-cards" data-sommaire></ul>
 
-    <h2><a href="page3.html">MEDIA</a></h2>
-    <p class="sommaire">logo,video, source..</p>
+    <nav class="pager" data-pager></nav>
+  </main>
 
-    <h2 ><a href="page4.html">NEWSLETTER</a></h2>
-    <p class="sommaire">Rejoigniez nous pour ne plus rien manquer !!!</p>
-    
-    </main>
-     <nav>
-        <a href="../html/page2.html" id="boutonarr"><img height="30" width="30" src="../image/gauche.jpg" alt="gauche"></a>
-        <a href="../html/indexhtml.html" id="boutonavv"> <img height="30" width="30" src="../image/droite.jpg" alt="droite"> </a>
-    </nav>  
-    <footer >
-        <p>DMS</p>
-        <p><span id='horloge' class="heure"></span></p>
-    </footer>
-    
-    <script src="../js/heure.js" > </script>
-
-    
+  <footer class="site-footer" data-site-footer></footer>
 </body>
 </html>

@@ -1,84 +1,122 @@
-var canvas =document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var colorri = document.getElementById('color');
-var valeurManuelle = document.getElementById('valeurManuelle');
-var texte = "DMS";
-var check = true;
+/**
+ * canvas.js — logo « DMS » dessiné avec des courbes de Bézier.
+ *
+ * Deux formes superposées + le texte au centre. Les commandes de la page
+ * (couleur, lettres, relief, épaisseur) modifient `state`, puis on redessine.
+ */
+(() => {
+  'use strict';
 
+  const canvas = document.querySelector('#logo-canvas');
+  if (!canvas) return;
 
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const ctx = canvas.getContext('2d');
+  const colorInput = document.querySelector('#color');
+  const lettersInput = document.querySelector('#letters');
+  const reliefSlider = document.querySelector('#slider');
+  const reliefOutput = document.querySelector('#slider-out');
+  const lineSelect = document.querySelector('#choix');
+  const reliefButton = document.querySelector('#bouton');
 
-  ctx.fillStyle = colorri.value;
-  ctx.strokeStyle = "#5034e0";
-  ctx.lineWidth = choix.value;
+  // Dimensions logiques (le CSS adapte l'affichage, la densité de pixels est gérée plus bas).
+  const W = 500;
+  const H = 500;
+  const M = 20;
 
-  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-  ctx.shadowBlur = 5;
-  ctx.shadowOffsetX = slider.value;
-  ctx.shadowOffsetY = slider.value;
-  if(!check)
-    ctx.shadowColor = 'transparent';
+  // Points de contrôle de la page « Comprendre le code »
+  const A = { x: W - M, y: H - M };
+  const B = { x: M, y: H - M };
+  const C = { x: W / 2, y: M };
+  const D = { x: W - M, y: M };
+  const E = { x: W / 2, y: H - M };
 
-  ctx.beginPath();
-  ctx.moveTo(500-20, 500-20);
-  ctx.lineTo(20, 500-20);
-  ctx.lineTo(500/2, 20);
-  ctx.bezierCurveTo(500-20, 20, 500/2, 500-20, 500-20, 500-20);
-  ctx.lineTo(20, 500-20);
-  ctx.fill();
-  ctx.stroke();
-  ctx.closePath();
-  ctx.fillStyle = "#e034b3";
-  ctx.beginPath();
-  ctx.moveTo(500-20, 500-20);
-  ctx.lineTo(20, 500-20);
-  ctx.bezierCurveTo(500/2, 20, 20, 500-20, 500-20, 500-20);
-  ctx.lineTo(20, 500-20);
-  ctx.fill();
-  ctx.stroke();
-  ctx.closePath();
+  const LOGO_TEXT = 'DMS';
 
-  ctx.fillStyle = "#ffffff";
-  ctx.font = Math.floor((500/3)-(500/10))+'px serif';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(texte, (500/2), 500/2);
-  texte = "DMS";
-}
- 
-draw();
+  const state = {
+    color: colorInput.value,
+    removed: '',
+    reliefSize: Number(reliefSlider.value),
+    lineWidth: Number(lineSelect.value),
+    relief: true,
+  };
 
-colorri.addEventListener('change', draw);
-slider.addEventListener('input', draw);
+  // Net sur les écrans haute densité : on agrandit le buffer, pas l'affichage.
+  const pixelRatio = window.devicePixelRatio || 1;
+  canvas.width = W * pixelRatio;
+  canvas.height = H * pixelRatio;
 
-valeurManuelle.addEventListener('input', function() {
-    let i;
-    for(i = 0; i < texte.length; i++)
-    {
-        if(texte.charAt(i) == valeurManuelle.value.trim())
-        {
-            switch(i)
-            {
-                case 0 :
-                    texte = "MS";
-                    break;
-                case 1 :
-                    texte = "DS";
-                    break;
-                case 2 :
-                    texte = "DM";
-                    break;
-            }
-        }
-    }
+  const visibleText = () => {
+    const removed = new Set(state.removed.toUpperCase());
+    return [...LOGO_TEXT].filter((letter) => !removed.has(letter)).join('');
+  };
+
+  const draw = () => {
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    ctx.fillStyle = state.color;
+    ctx.strokeStyle = '#5034e0';
+    ctx.lineWidth = state.lineWidth;
+
+    ctx.shadowColor = state.relief ? 'rgba(0, 0, 0, 0.5)' : 'transparent';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = state.reliefSize;
+    ctx.shadowOffsetY = state.reliefSize;
+
+    // Forme 1 (couleur au choix)
+    ctx.beginPath();
+    ctx.moveTo(A.x, A.y);
+    ctx.lineTo(B.x, B.y);
+    ctx.lineTo(C.x, C.y);
+    ctx.bezierCurveTo(D.x, D.y, E.x, E.y, A.x, A.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Forme 2 (rose)
+    ctx.fillStyle = '#e034b3';
+    ctx.beginPath();
+    ctx.moveTo(A.x, A.y);
+    ctx.lineTo(B.x, B.y);
+    ctx.bezierCurveTo(C.x, C.y, B.x, B.y, A.x, A.y);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Texte
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `${Math.floor(W / 3 - W / 10)}px serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(visibleText(), W / 2, H / 2);
+  };
+
+  colorInput.addEventListener('input', () => {
+    state.color = colorInput.value;
     draw();
-});
+  });
 
-choix.addEventListener('change', draw);
-
-bouton.addEventListener("click", function(){
-    check = !check;
+  lettersInput.addEventListener('input', () => {
+    state.removed = lettersInput.value.trim();
     draw();
-});
+  });
 
+  reliefSlider.addEventListener('input', () => {
+    state.reliefSize = Number(reliefSlider.value);
+    reliefOutput.textContent = reliefSlider.value;
+    draw();
+  });
+
+  lineSelect.addEventListener('change', () => {
+    state.lineWidth = Number(lineSelect.value);
+    draw();
+  });
+
+  reliefButton.addEventListener('click', () => {
+    state.relief = !state.relief;
+    reliefButton.setAttribute('aria-pressed', String(state.relief));
+    draw();
+  });
+
+  draw();
+})();

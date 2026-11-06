@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Abdourahmane Benamine">
+  <meta name="description" content="Site de fan dédié à Damso : biographie, albums, médias et newsletter.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Damso | Accueil</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Ctext x='32' y='41' font-family='Arial Black,Arial,sans-serif' font-size='24' font-weight='900' text-anchor='middle' fill='%23d4af37'%3EDMS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700;800;900&display=swap">
+  <link rel="stylesheet" href="../css/feuilledestyle.css">
+  <script src="../js/layout.js" defer></script>
+</head>
+<body data-page="index.html">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header" data-site-header></header>
+
+  <main id="main" class="container">
+    <section class="hero">
+      <p class="eyebrow">Fan page · Rap francophone</p>
+      <h1 class="hero__title">Qui est Damso ?</h1>
+      <p class="lead">Damso, de son vrai nom William Kalubi Mwamba, né le 10 mai 1992 à Kinshasa (RDC), est un rappeur et auteur-compositeur-interprète belgo-congolais.</p>
+      <div class="hero__actions">
+        <a class="btn" href="page2.html">Découvrir les albums</a>
+        <a class="btn btn--ghost" href="page1.html">Voir le sommaire</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="bio-title">
+      <h2 class="section__title" id="bio-title">Biographie</h2>
+      <article class="card split">
+        <div class="prose">
+          <h3>L'ascension et la consécration</h3>
+          <p>Repéré par Booba pour la mixtape <em>OKLM</em>, son couplet sur <em>Pinocchio</em> le révèle au grand public. Son vécu fait la force de sa plume :</p>
+          <blockquote>
+            <p>« Je crois que le dark c’est ma forme d’écriture »</p>
+          </blockquote>
+          <p>
+            <a class="btn" href="https://www.youtube.com/watch?v=8vipC8u0V0k" target="_blank" rel="noopener noreferrer">▶ Écouter Amnésie</a>
+          </p>
+        </div>
+        <div class="split__media">
+          <img src="../image/Damso.webp" alt="Portrait en noir et blanc de Damso, la main devant le visage" width="500" height="333" decoding="async">
+        </div>
+      </article>
+
+      <dl class="facts">
+        <div class="fact"><dt>Nom de naissance</dt><dd>William Kalubi Mwamba</dd></div>
+        <div class="fact"><dt>Naissance</dt><dd>10 mai 1992, Kinshasa (RDC)</dd></div>
+        <div class="fact"><dt>Nationalité</dt><dd>Belgo-congolais</dd></div>
+      </dl>
+    </section>
+
+    <section class="section" aria-labelledby="audio-title">
+      <h2 class="section__title" id="audio-title">Écouter</h2>
+      <div class="card audio-card">
+        <p class="muted">Un extrait pour entrer dans l'univers.</p>
+        <audio controls preload="none" src="../image/Damso.mp3">
+          Votre navigateur ne gère pas la lecture audio.
+        </audio>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="visit-title">
+      <h2 class="section__title" id="visit-title">Continuer la visite</h2>
+      <ul class="nav-cards" data-sommaire></ul>
+    </section>
+
+    <nav class="pager" data-pager></nav>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+</body>
+</html>
