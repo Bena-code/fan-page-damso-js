@@ -28,7 +28,9 @@ Pour ajouter une page : créer le fichier HTML (copier une page existante) et aj
 
 ## ▶️ Lancer le site
 
-Ouvrir `html/index.html` dans le navigateur (double-clic), ou, pour un rendu identique à la mise en ligne :
+Le site est accessible en ligne sur [GitHub Pages](https://bena-code.github.io/fan-page-damso-js/html/index.html).
+
+Pour le lancer localement, ouvrir `html/index.html` dans le navigateur (double-clic), ou, pour un rendu identique à la mise en ligne :
 
 ```
 python3 -m http.server 8000
